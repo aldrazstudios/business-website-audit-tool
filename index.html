@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Business Website Audit Tool</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f4f1;
+      color: #1f1f1f;
+    }
+
+    header {
+      background: #111111;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 38px;
+    }
+
+    header p {
+      max-width: 700px;
+      margin: 15px auto 0;
+      color: #dddddd;
+      line-height: 1.6;
+    }
+
+    main {
+      max-width: 950px;
+      margin: 35px auto;
+      padding: 0 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 18px;
+      padding: 25px;
+      margin-bottom: 22px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+      border: 1px solid #e2e2e2;
+    }
+
+    h2 {
+      margin-top: 0;
+      font-size: 24px;
+    }
+
+    .input-group {
+      margin-bottom: 18px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    input,
+    select {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #cccccc;
+      border-radius: 10px;
+      font-size: 16px;
+    }
+
+    .checklist label {
+      font-weight: normal;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 13px 0;
+      line-height: 1.4;
+    }
+
+    .checklist input {
+      width: auto;
+      transform: scale(1.2);
+    }
+
+    button {
+      width: 100%;
+      padding: 16px;
+      border: none;
+      border-radius: 12px;
+      background: #111111;
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+
+    button:hover {
+      background: #333333;
+    }
+
+    .result {
+      display: none;
+      background: #eef7ee;
+      border: 1px solid #b7dfb7;
+      border-radius: 18px;
+      padding: 25px;
+      margin-top: 25px;
+    }
+
+    .score {
+      font-size: 46px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .grade {
+      font-size: 22px;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    .recommendations {
+      margin-top: 15px;
+      padding-left: 20px;
+    }
+
+    .recommendations li {
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      color: #666666;
+      font-size: 14px;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 30px;
+      }
+
+      .score {
+        font-size: 38px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Business Website Audit Tool</h1>
+    <p>
+      A simple tool for checking if a restaurant, café, gym, salon, or local business website has the important features needed to look professional and convert visitors into customers.
+    </p>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>Business Details</h2>
+
+      <div class="input-group">
+        <label for="businessName">Business name</label>
+        <input id="businessName" type="text" placeholder="Example: Luna Café" />
+      </div>
+
+      <div class="input-group">
+        <label for="businessType">Business type</label>
+        <select id="businessType">
+          <option value="local business">Local Business</option>
+          <option value="restaurant">Restaurant</option>
+          <option value="café">Café</option>
+          <option value="gym">Gym</option>
+          <option value="salon">Salon</option>
+          <option value="clinic">Clinic</option>
+          <option value="service business">Service Business</option>
+        </select>
+      </div>
+    </section>
+
+    <section class="card checklist">
+      <h2>Contact & Trust</h2>
+
+      <label><input type="checkbox" class="audit" data-tip="Add a clear WhatsApp or phone button near the top of the website."> Clear WhatsApp or phone button</label>
+      <label><input type="checkbox" class="audit" data-tip="Add a Google Maps link so customers can find the business easily."> Location or Google Maps link</label>
+      <label><input type="checkbox" class="audit" data-tip="Add opening hours so customers know when the business is available."> Opening hours</label>
+      <label><input type="checkbox" class="audit" data-tip="Add reviews or testimonials to build trust with new visitors."> Reviews or testimonials</label>
+    </section>
+
+    <section class="card checklist">
+      <h2>Content Quality</h2>
+
+      <label><input type="checkbox" class="audit" data-tip="Make the hero section clearly explain what the business does in one sentence."> Clear hero section</label>
+      <label><input type="checkbox" class="audit" data-tip="Add menu items, services, packages, or prices so visitors understand the offer."> Menu, services, or pricing</label>
+      <label><input type="checkbox" class="audit" data-tip="Use real photos of the business instead of only generic stock images."> Real business photos</label>
+      <label><input type="checkbox" class="audit" data-tip="Add a short about section to explain the brand and make it feel more human."> Short about section</label>
+    </section>
+
+    <section class="card checklist">
+      <h2>User Experience</h2>
+
+      <label><input type="checkbox" class="audit" data-tip="Make sure the website looks good on mobile because most visitors use phones."> Mobile-friendly layout</label>
+      <label><input type="checkbox" class="audit" data-tip="Use clear buttons like Book Now, WhatsApp Us, View Menu, or Get Directions."> Clear call-to-action buttons</label>
+      <label><input type="checkbox" class="audit" data-tip="Keep the layout simple and avoid overcrowding the page with too much text."> Clean and simple layout</label>
+      <label><input type="checkbox" class="audit" data-tip="Compress images and avoid heavy elements so the page loads faster."> Fast loading experience</label>
+    </section>
+
+    <button onclick="calculateScore()">Generate Audit Report</button>
+
+    <section id="result" class="result"></section>
+  </main>
+
+  <footer>
+    Built by Al Draz Studios for local business website audits.
+  </footer>
+
+  <script>
+    function calculateScore() {
+      const businessName = document.getElementById("businessName").value || "This business";
+      const businessType = document.getElementById("businessType").value;
+      const checks = document.querySelectorAll(".audit");
+
+      let completed = 0;
+      let missingTips = [];
+
+      checks.forEach(check => {
+        if (check.checked) {
+          completed++;
+        } else {
+          missingTips.push(check.dataset.tip);
+        }
+      });
+
+      const score = Math.round((completed / checks.length) * 100);
+
+      let grade = "";
+      let message = "";
+
+      if (score >= 85) {
+        grade = "Excellent website foundation";
+        message = `${businessName} has a strong ${businessType} website foundation. The website looks trustworthy and should be easier for visitors to use.`;
+      } else if (score >= 60) {
+        grade = "Good, but needs improvement";
+        message = `${businessName} has a decent ${businessType} website, but it is still missing important features that can help convert visitors into customers.`;
+      } else {
+        grade = "Weak website foundation";
+        message = `${businessName} may be losing customers because the website is missing important trust, content, or contact features.`;
+      }
+
+      const result = document.getElementById("result");
+
+      let recommendationsHTML = "";
+
+      if (missingTips.length > 0) {
+        recommendationsHTML = `
+          <h3>Recommended improvements</h3>
+          <ul class="recommendations">
+            ${missingTips.slice(0, 5).map(tip => `<li>${tip}</li>`).join("")}
+          </ul>
+        `;
+      } else {
+        recommendationsHTML = `
+          <h3>Recommended improvements</h3>
+          <p>The website already includes the most important basics. Next step: improve design quality, speed, SEO, and conversion tracking.</p>
+        `;
+      }
+
+      result.style.display = "block";
+      result.innerHTML = `
+        <div class="score">${score}/100</div>
+        <div class="grade">${grade}</div>
+        <p>${message}</p>
+        ${recommendationsHTML}
+      `;
+
+      result.scrollIntoView({ behavior: "smooth" });
+    }
+  </script>
+</body>
+</html>
