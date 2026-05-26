@@ -41,4 +41,4 @@ This tool helps find those missing pieces quickly.
 
 ## Live demo
 
-Coming soon.
+https://aldrazstudios.github.io/business-website-audit-tool/
